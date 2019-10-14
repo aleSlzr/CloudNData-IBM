@@ -12,7 +12,7 @@
 
     <br>
 
-    <button v-on:click="queryByQueryString()">Realizar consulta</button>
+    <b-button variant="outline-primary" v-on:click="queryByQueryString()">Realizar consulta</b-button>
 
     <br>
     <br>

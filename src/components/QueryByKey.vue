@@ -1,18 +1,25 @@
 <template>
   <div class="posts">
     <h1>Consulta por ID</h1>
-    <form v-on:submit="queryByKey">
-      <input type="text" v-model="input.key" placeholder="Ingrese valor a consultar">
-      <br>
 
-      <input type="submit" value="Consultar">
-      <br>
-      <br>
-      <span v-if="input">
-        <b>{{ input.data }}</b>
-      </span>  
-      <br>
-    </form>
+    <b-container>
+      <b-row>
+        <b-col sm="5" class="alignForm">
+          <form v-on:submit="queryByKey">
+            <b-form-input type="text" v-model="input.key" placeholder="Ingresa tu RFC"></b-form-input>
+            <br>
+
+            <b-button variant="outline-primary" type="submit" value="Consultar">Consultar</b-button>
+            <br>
+            <br>
+            <span v-if="input">
+              <b>{{ input.data }}</b>
+            </span>  
+            <br>
+          </form>
+        </b-col>
+      </b-row>
+    </b-container>
 
     <br>
       <vue-instant-loading-spinner id='loader' ref="Spinner"></vue-instant-loading-spinner>
@@ -43,7 +50,7 @@ export default {
       console.log(this.input);
       if (!this.input.key) {
         console.log('this.input$#: ');
-        let response = 'Please enter a Key to query for.';
+        let response = 'Ingresa algo para buscar';
         this.input.data = response;
         this.hideSpinner();
       } else {
@@ -63,3 +70,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.alignForm{
+  margin-left: 30%;
+}
+</style>

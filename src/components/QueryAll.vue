@@ -1,8 +1,7 @@
 <template>
   <div class="posts">
     <h1>Estado Actual: Todos los valores</h1>
-    <button v-on:click="queryAll()">Consultar todo</button>
-
+    <b-button variant="outline-primary" type="submit" v-on:click="queryAll()">Consultar todo</b-button>
     <div v-bind:key="carEntry.Key" v-for="carEntry in response">
       <p>{{ carEntry.Key }} | {{ carEntry.Record }}</p>
     </div>

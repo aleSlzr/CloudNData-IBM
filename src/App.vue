@@ -2,15 +2,15 @@
   <div id="app">
       <!-- Image and text -->
       <b-navbar variant="faded" type="dark" sticky="true">
-        <b-navbar-brand href="#">
+        <b-navbar-brand href="/">
           <img src="./assets/logo.svg" class="d-inline-block align-top logo" alt="Kitten">
           Music Awards
         </b-navbar-brand>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#"><router-link to="/QueryAll">QueryAll</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link to="/queryWithQueryString">Query by Type</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link to="/queryByKey">Query by Key</router-link></b-nav-item>
-          <b-nav-item href="#"><router-link to="/getCurrentStanding">Get Poll Standings</router-link></b-nav-item>
+          <b-nav-item><router-link to="/QueryAll">QueryAll</router-link></b-nav-item>
+          <b-nav-item><router-link to="/queryWithQueryString">Query by Type</router-link></b-nav-item>
+          <b-nav-item><router-link to="/queryByKey">Query by Key</router-link></b-nav-item>
+          <b-nav-item><router-link to="/getCurrentStanding">Get Poll Standings</router-link></b-nav-item>
         </b-navbar-nav>
       </b-navbar>
         <!-- <p><router-link to="/">Home</router-link>&nbsp;           -->

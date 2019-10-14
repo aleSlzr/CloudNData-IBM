@@ -2,7 +2,7 @@
   <div class="posts">
     <h1>Ver las votaciones</h1>
 
-    <button v-on:click="getCurrentStanding()">Verificar votaciones</button>
+    <b-button variant="outline-primary" v-on:click="getCurrentStanding()">Verificar votaciones</b-button>
 
     <br>
     <span v-if="response">
