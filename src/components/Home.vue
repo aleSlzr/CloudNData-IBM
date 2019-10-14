@@ -1,20 +1,24 @@
 <template>
   <div class="posts">
-    <h1>2019 IBM Music Awards!</h1>
-    <h2>Si eres un votante registrado, solo agrega tu voterId</h2>
+    <h1 > <img src="../assets/compact-disc-solid.svg" alt="" class="musicIcon">&nbsp; IBM Music Awards 2019 &nbsp; <img src="../assets/compact-disc-solid.svg" alt="" class="musicIcon"> </h1>
+
+    <b-collapse id="collapse-4" v-model="showLogin" class="mt-2">
     <!--span><b>{{ response }}</b></span><br /-->
     <form v-on:submit="validateVoter">
       <b-container>
         <b-row>
-          <b-col sm="3">
+          <!-- <b-col sm="3">
             <label>Ingresa tu RFC:</label>
-          </b-col>
-          <b-col sm="9">
-            <b-form-input type="text" v-model="loginData.voterId" placeholder="Ingresa tu RFC"></b-form-input>
+          </b-col> -->
+          <b-col sm="4"></b-col>
+
+          <b-col sm="4">
+            <b-form-input type="text" v-model="loginData.voterId" placeholder="Ingresa tu RFC /VoterID"></b-form-input>
           </b-col>
         </b-row><br>
 
-        <b-button variant="outline-primary" type="submit" value="Login">Login</b-button>
+        <b-button variant="outline-primary" type="submit" value="Login">Login</b-button> &nbsp;&nbsp;&nbsp;
+        <b-button variant="outline-primary" @click="showRegister = !showRegister, showLogin = !showLogin">Regístrate</b-button>
         <br>
         <br>
         <span v-if="loginReponse">
@@ -23,52 +27,54 @@
         <br>
       </b-container>
     </form>
+    </b-collapse>
 
     <br>
-    <h2>De lo contrario, ¡Registrate aqui!</h2>
-    <form v-on:submit="registerVoter">
+    <b-collapse id="collapse-4" v-model="showRegister" class="mt-2">
+    <h2>Ingresa tus datos para registrarte</h2>
+    <form v-on:submit="registerVoter"  >
       <b-container>
         <b-row>
-          <b-col sm="3">
-            <label>Ingresa tu RFC:</label>
+          <b-col sm="4">
           </b-col>
-          <b-col sm="9">
+          <b-col sm="4">
             <b-form-input type="text" v-model="registerData.voterId" placeholder="Ingresa tu RFC"></b-form-input>
           </b-col>
         </b-row><br>
         <b-row>
-          <b-col sm="3">
-            <label>Ingresa tu número de teléfono:</label>
+          <b-col sm="4">
           </b-col>
-          <b-col sm="9">
+          <b-col sm="4">
             <b-form-input type="text" v-model="registerData.registrarId" placeholder="Ingresa tu número de teléfono"></b-form-input>
           </b-col>
         </b-row><br>
         <b-row>
-          <b-col sm="3">
-            <label>Ingresa tu nombre:</label>
+          <b-col sm="4">
           </b-col>
-          <b-col sm="9">
+          <b-col sm="4">
             <b-form-input type="text" v-model="registerData.firstName" placeholder="Ingresa tu nombre"></b-form-input>
           </b-col>
         </b-row><br>
         <b-row>
-          <b-col sm="3">
-            <label>Ingresa tu apellido:</label>
+          <b-col sm="4">
           </b-col>
-          <b-col sm="9">
+          <b-col sm="4">
             <b-form-input type="text" v-model="registerData.lastName" placeholder="Ingresa tu apellido"></b-form-input>
           </b-col>
         </b-row><br>
       </b-container>
 
-      <b-button variant="outline-primary" type="submit" value="Registrar">Registrar</b-button>
+      <b-button variant="outline-primary" type="submit" value="Registrar">Registrar</b-button>  &nbsp;&nbsp;&nbsp;
+      <b-button variant="outline-primary" @click="showRegister = !showRegister, showLogin = !showLogin"> Volver al Login</b-button> 
+
     </form>
     <br>
     <span v-if="registerReponse">
       <b>{{ registerReponse.data }}</b>
     </span>
-    <br>
+    <br>    
+    </b-collapse>
+
     <vue-instant-loading-spinner id='loader' ref="Spinner"></vue-instant-loading-spinner>
   </div>
 </template>
@@ -88,7 +94,9 @@ export default {
       },
       loginReponse: {
         data: ""
-      }
+      },
+      showRegister: false,
+      showLogin: true
     };
   },
   components: {
@@ -96,7 +104,6 @@ export default {
   },
   methods: {
     async registerVoter() {
-
       await this.runSpinner();
       const apiResponse = await PostsService.registerVoter(
         this.registerData.voterId,
@@ -115,7 +122,7 @@ export default {
 
       if (!this.loginData.voterId) {
         console.log("!thislogin");
-        let response = 'Ingresa un ID valido';
+        let response = "Ingresa un ID valido";
         this.loginReponse.data = response;
         await this.hideSpinner();
       } else {
@@ -148,3 +155,18 @@ export default {
   }
 };
 </script>
+<style>
+ .posts{
+   margin-top: 10%;
+ }
+ .musicIcon{
+   width: 3%;
+ }
+ .posts h1{
+    color: black;
+    font-weight: 100;
+    font-size: 50px;
+    margin-bottom: 1em;
+ }
+
+</style>

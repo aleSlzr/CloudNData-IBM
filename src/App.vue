@@ -37,7 +37,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: url('./assets/whiteTexture.png')
+  background-image: url('./assets/whiteTexture.png');
+  min-height: 60em;
 }
 .chart-wrapper {
   width: 100%;
@@ -66,4 +67,11 @@ export default {
 .navbar-brand{
   width: 25%;
 }
+a:hover {
+    color: #0056b3;
+    text-decoration: none !important;
+}
+ .v-rise{
+   background-color: rgb(10, 120, 239)!important;
+ }
 </style>
