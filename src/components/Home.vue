@@ -1,39 +1,68 @@
 <template>
   <div class="posts">
     <h1>2019 IBM Music Awards!</h1>
-    <h3>Si eres un votante registrado, solo agrega tu voterId</h3>
+    <h2>Si eres un votante registrado, solo agrega tu voterId</h2>
     <!--span><b>{{ response }}</b></span><br /-->
     <form v-on:submit="validateVoter">
-      <input type="text" v-model="loginData.voterId" placeholder="Ingresa tu ID">
-      <br>
+      <b-container>
+        <b-row>
+          <b-col sm="3">
+            <label>Ingresa tu RFC:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input type="text" v-model="loginData.voterId" placeholder="Ingresa tu RFC"></b-form-input>
+          </b-col>
+        </b-row><br>
 
-      <input type="submit" value="Login">
-      <br>
-      <br>
-      <span v-if="loginReponse">
-        <b>{{ loginReponse.data }}</b>
-      </span>
-      <br>
-      <b-input-group prepend="Username" class="mt-3">
-        <b-form-input v-model="loginData.voterId" placeholder="Ingresa tu ID"></b-form-input>
-        <b-input-group-append>
-          <b-button variant="info" type="submit" value="Login">Button</b-button>
-        </b-input-group-append>
-      </b-input-group>
+        <b-button variant="outline-primary" type="submit" value="Login">Login</b-button>
+        <br>
+        <br>
+        <span v-if="loginReponse">
+          <b>{{ loginReponse.data }}</b>
+        </span>
+        <br>
+      </b-container>
     </form>
 
     <br>
-    <h3>De lo contrario, ¡Registrate aqui!</h3>
+    <h2>De lo contrario, ¡Registrate aqui!</h2>
     <form v-on:submit="registerVoter">
-      <input type="text" v-model="registerData.voterId" placeholder="Ingresa tu RFC">
-      <br>
-      <input type="text" v-model="registerData.registrarId" placeholder="Ingresa tu número de telefono">
-      <br>
-      <input type="text" v-model="registerData.firstName" placeholder="Ingresa tu nombre">
-      <br>
-      <input type="text" v-model="registerData.lastName" placeholder="Ingresa tu apellido">
-      <br>
-      <input type="submit" value="Registrar">
+      <b-container>
+        <b-row>
+          <b-col sm="3">
+            <label>Ingresa tu RFC:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input type="text" v-model="registerData.voterId" placeholder="Ingresa tu RFC"></b-form-input>
+          </b-col>
+        </b-row><br>
+        <b-row>
+          <b-col sm="3">
+            <label>Ingresa tu número de teléfono:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input type="text" v-model="registerData.registrarId" placeholder="Ingresa tu número de teléfono"></b-form-input>
+          </b-col>
+        </b-row><br>
+        <b-row>
+          <b-col sm="3">
+            <label>Ingresa tu nombre:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input type="text" v-model="registerData.firstName" placeholder="Ingresa tu nombre"></b-form-input>
+          </b-col>
+        </b-row><br>
+        <b-row>
+          <b-col sm="3">
+            <label>Ingresa tu apellido:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input type="text" v-model="registerData.lastName" placeholder="Ingresa tu apellido"></b-form-input>
+          </b-col>
+        </b-row><br>
+      </b-container>
+
+      <b-button variant="outline-primary" type="submit" value="Registrar">Registrar</b-button>
     </form>
     <br>
     <span v-if="registerReponse">
