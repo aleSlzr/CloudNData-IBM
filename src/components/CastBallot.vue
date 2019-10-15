@@ -1,29 +1,29 @@
 <template>
   <div class="posts">
     <h1>¡Bandas participantes!</h1>
-    <input type="radio" id="one" value="JonasBrothers" v-model="picked">
-    <label for="one">Jonas Brothers</label>
+    <input type="radio" id="one" value="radiohead" v-model="picked">
+    <label for="one">Radiohead</label>
     <br>
-    <input type="radio" id="two" value="Juanes" v-model="picked">
-    <label for="two">Juanes</label>
-    <br>
-    <input type="radio" id="two" value="Interpol" v-model="picked">
-    <label for="two">Interpol</label>
-    <br>
-    <input type="radio" id="two" value="1975" v-model="picked">
+    <input type="radio" id="two" value="the1975" v-model="picked">
     <label for="two">The 1975</label>
     <br>
-    <input type="radio" id="two" value="Radiohead" v-model="picked">
-    <label for="two">Radiohead</label>
+    <input type="radio" id="two" value="interpol" v-model="picked">
+    <label for="two">Interpol</label>
     <br>
-    <input type="radio" id="two" value="TaylorSwift" v-model="picked">
+    <input type="radio" id="two" value="queen" v-model="picked">
+    <label for="two">Queen</label>
+    <br>
+    <input type="radio" id="two" value="taylorswift" v-model="picked">
     <label for="two">Taylor Swift</label>
     <br>
-    <input type="radio" id="two" value="SamSmith" v-model="picked">
-    <label for="two">Sam Smith</label>
+    <input type="radio" id="two" value="jonas" v-model="picked">
+    <label for="two">Jonas Brothers</label>
     <br>
-    <input type="radio" id="two" value="Maluma" v-model="picked">
-    <label for="two">Maluma</label>
+    <input type="radio" id="two" value="juanes" v-model="picked">
+    <label for="two">Juanes</label>
+    <br>
+    <input type="radio" id="two" value="jbalvin" v-model="picked">
+    <label for="two">J Balvin</label>
     <br>
     <br>
     <span v-if="picked">

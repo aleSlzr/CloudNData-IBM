@@ -4,12 +4,12 @@
 
     <b-button variant="outline-primary" v-on:click="getCurrentStanding()">Verificar votaciones</b-button>
 
-    <br>
+    <br />
     <span v-if="response">
       <b>{{ response }}</b>
     </span>
-    <br>
-    <vue-instant-loading-spinner id='loader' ref="Spinner"></vue-instant-loading-spinner>
+    <br />
+    <vue-instant-loading-spinner id="loader" ref="Spinner"></vue-instant-loading-spinner>
     <div class="chart-wrapper">
       <chart :options="chartOptionsBar"></chart>
     </div>
@@ -36,30 +36,31 @@ export default {
   methods: {
     async getCurrentStanding() {
       this.response = null;
-      
+
       this.runSpinner();
 
       // console.log(`this.selected ${this.selected}`);
       const apiResponse = await PostsService.getCurrentStanding();
       console.log("%%%%%%%%%%%%%%%%%%%%%%%%%");
-      console.log(apiResponse);
-      console.log(apiResponse.data[0].Record);
+      console.log("ApiResponse", apiResponse);
+      console.log("Record", apiResponse.data[0].Record);
       let currentStanding = [];
+      let data = [];
       for (let i = 0; i < apiResponse.data.length; i++) {
         currentStanding[i] = apiResponse.data[i].Record.count;
+        data.push(apiResponse.data[i].Record.description);
       }
+
       console.log("curStanding: ");
       console.log(currentStanding);
 
       this.chartOptionsBar = {
         xAxis: {
-          data: [
-            "Democrat",
-            "Green",
-            "Independent",
-            "Libertarian",
-            "Republican"
-          ]
+          data: data,
+          ticks: {
+            stepSize: 50,
+            maxTicksLimit: 3
+          }
         },
         yAxis: {
           type: "value"
@@ -70,6 +71,7 @@ export default {
             data: currentStanding
           }
         ],
+
         title: {
           text: "2020 ",
           x: "center",
