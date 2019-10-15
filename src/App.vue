@@ -41,8 +41,7 @@ export default {
   min-height: 60em;
 }
 .chart-wrapper {
-  width: 100%;
-  height: 700px;
+  padding-left: 20%;
 }
 .echarts {
   width: 100%;

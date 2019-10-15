@@ -3,10 +3,10 @@
     <h1>Selecciona el tipo de consulta a realizar</h1>
     <select v-model="selected">
       <option disabled value>Selecciona uno</option>
-      <option>ballot</option>
-      <option>election</option>
-      <option>votableItem</option>
-      <option>voter</option>
+      <option>Votación</option>
+      <option>Elección</option>
+      <option>Candidatos</option>
+      <option>Votante</option>
     </select>
     <br>
 
