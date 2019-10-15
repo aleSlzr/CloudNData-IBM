@@ -37,11 +37,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: url('./assets/whiteTexture.png');
-  min-height: 60em;
+  background-image: url('./assets/whiteTexture.png')
 }
 .chart-wrapper {
-  padding-left: 20%;
+  width: 100%;
+  height: 700px;
 }
 .echarts {
   width: 100%;
@@ -54,8 +54,7 @@ export default {
 }
 
 .chart-wrapper {
-  position:fixed;
-  padding-left:32%;
+  padding-left:20%;
 }
 .logo{
   width: 20%;
@@ -66,11 +65,4 @@ export default {
 .navbar-brand{
   width: 25%;
 }
-a:hover {
-    color: #0056b3;
-    text-decoration: none !important;
-}
- .v-rise{
-   background-color: rgb(10, 120, 239)!important;
- }
 </style>
